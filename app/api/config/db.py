@@ -1,6 +1,5 @@
 import json
 from typing import List, Dict, Any
-from bson import ObjectId
 
 DATA_FILE = "data.json"
 

@@ -1,9 +1,8 @@
-from typing import Optional
-
 from pydantic import BaseModel
 
 # Define your data models and schemas here
 # For now, using generic examples
+
 
 class Question(BaseModel):
     """
