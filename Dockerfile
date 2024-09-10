@@ -1,11 +1,13 @@
 FROM python:3.9-slim
-WORKDIR /app
 
-COPY ./requirements.txt /app/requirements.txt
+WORKDIR /code
 
-RUN apt-get update \
-    && apt-get install gcc -y \
-    && apt-get clean
+COPY ./requirements.txt /code/requirements.txt
 
-RUN pip install -r requirements.txt
-COPY . /app/
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+
+COPY ./app /code/app
+
+EXPOSE 80
+
+CMD ["fastapi", "run", "app/app.py", "--port", "80"]
