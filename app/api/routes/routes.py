@@ -1,8 +1,6 @@
 import logging
 from typing import List
 
-from fastapi.responses import JSONResponse
-
 # Configuration, models, methods and authentication modules imports
 from app.api.config.db import (add_item, delete_item, find_item, get_items,
                                update_item)
@@ -12,6 +10,7 @@ from app.api.methods.methods import convert_objectid_to_str, is_valid_objectid
 from app.api.models.models import Question, ResponseError
 from app.bot.nova_bot import NovaBot
 from fastapi import APIRouter, Request
+from fastapi.responses import JSONResponse
 from slowapi.errors import RateLimitExceeded
 
 router = APIRouter()
@@ -38,7 +37,7 @@ bot = NovaBot()
         500: {"model": ResponseError, "description": "Internal Server Error."},
     },
 )
-#@limiter.limit("5/minute")
+@limiter.limit("5/minute")
 def chatbot(question: Question):
     """
     Endpoint to handle chatbot queries.
