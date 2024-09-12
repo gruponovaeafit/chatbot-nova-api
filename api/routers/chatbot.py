@@ -1,12 +1,12 @@
 import logging
 
-# Configuration, models, methods and authentication modules imports
-from app.api.config.env import API_NAME
-from app.api.config.limiter import limiter
-from app.api.models.models import Question, ResponseError
-from app.bot.nova_bot import NovaBot
-from fastapi import APIRouter, Request
+from api.config.env import API_NAME
+from api.config.limiter import limiter
+from api.models.models import Question, ResponseError
+from api.bot.nova_bot import NovaBot
+from fastapi import APIRouter, Request, HTTPException
 from slowapi.errors import RateLimitExceeded
+
 
 router = APIRouter()
 

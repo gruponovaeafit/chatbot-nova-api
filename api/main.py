@@ -6,10 +6,10 @@ from slowapi.errors import RateLimitExceeded
 from slowapi.middleware import SlowAPIMiddleware
 
 # Routes and config modules import
-from app.api.config.env import (API_NAME, DEVELOPMENT_SERVER_URL,
-                                LOCALHOST_SERVER_URL, PRODUCTION_SERVER_URL)
-from app.api.config.limiter import limiter
-from app.api.routes.routes import router
+from api.config.env import (API_NAME, DEVELOPMENT_SERVER_URL,
+                            LOCALHOST_SERVER_URL, PRODUCTION_SERVER_URL)
+from api.config.limiter import limiter
+from api.routers.chatbot import router as chatbot_router
 
 # Load environment variables from .env file
 
@@ -99,4 +99,4 @@ async def on_shutdown():
 
 
 # Include the routes
-app.include_router(router, prefix=f"/api/v1/{API_NAME}")
+app.include_router(chatbot_router, prefix=f"/api/v1/{API_NAME}")

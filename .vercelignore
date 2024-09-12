@@ -1,0 +1,6 @@
+.env
+.env.example
+Dockerfile
+LICENSE
+README.md
+venv
