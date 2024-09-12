@@ -6,8 +6,8 @@ COPY ./requirements.txt /code/requirements.txt
 
 RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-COPY ./app /code/app
+COPY ./api /code/api
 
-EXPOSE 80
+EXPOSE 8000
 
-CMD ["fastapi", "run", "app/app.py", "--port", "80"]
+CMD ["uvicorn", "api.main:app", "--host", "0.0.0.0", "--port", "8000"]
