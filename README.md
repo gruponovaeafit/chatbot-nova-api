@@ -8,19 +8,24 @@ NOVA Chatbot es una innovadora herramienta de asistencia virtual desarrollada es
 
 ## 🙌 Squad y Roles (v2.0)
 
+![Banner Proyectos Communities - GitHub](https://github.com/user-attachments/assets/13c8de64-3907-4dca-91f6-92d6e515a21e)
+
+- Lider de Proyecto: Samuel Lopera.
+- Desarrollador: Miguel Sosa.
+- Analista: José Andrés Mendoza.
+- Diseñadora: Isabella Pardo.
+- Analista: David Arismendy.
+
 ## 🌟 Características
 
 - **Respuestas Instantáneas:** Capacidad para responder consultas frecuentes de manera eficiente y oportuna.
 - **Información Actualizada:** Acceso a la información más reciente sobre eventos, iniciativas y noticias del grupo.
-- **Interacción Amigable:** Interfaz intuitiva y fácil de usar, adaptada para una experiencia de usuario agradable.
 
 ## ¿Por qué NOVA Chatbot?
 
 Elegir ChatBot NOVA significa optar por una comunicación clara y un acceso directo a la información. Es más que un simple chatbot; es una puerta de entrada a la comprensión profunda de lo que representa NOVA EAFIT y cómo cada uno puede ser parte de esta emocionante experiencia.
 
 ## 🚀 Comenzando
-
-Antes de ejecutar el código, asegúrate de tener la API Key de OpenAI como una variable de entorno. Debes solicitar esta clave al equipo de desarrollo y crear un archivo `.env` en el directorio raíz del proyecto.
 
 Sigue estos pasos para poner en marcha el chatbot para pruebas:
 
@@ -32,6 +37,9 @@ cd chatbot-nova-api
 ```
 
 ### Crear y Activar el Entorno Virtual
+
+> [!NOTE]
+> Asegúrate de tener [Python](https://www.python.org/) instalado en tu sistema.
 
 En Linux/MacOS:
 
@@ -73,22 +81,24 @@ En Windows:
 pip install -r requirements.txt
 ```
 
-### Configurar la Variable de Entorno
+### Configurar las variables de entorno
 
-1. Copia el archivo `.env.example` y renómbralo a `.env`.
+1. Copiar el archivo `.env.example` y renombrarlo a `.env`:
 
-2. Abre el archivo `.env` y reemplaza los valores de las variables de entorno con tus propias credenciales.
+   ```bash
+   cp .env.example .env
+   ```
+
+2. Configurar las variables de entorno en el archivo `.env`.
 
 ### Ejecutar el Chatbot
 
 ```bash
-fastapi run app/app.py
+fastapi run api/main.py
 ```
-
-## 🧠 Cerebro
 
 ## 💬 Uso
 
 El chatbot está diseñado para responder a una amplia gama de entradas de los usuarios. Siéntete libre de hacer preguntas, realizar afirmaciones o entablar una conversación casual.
 
-Para usarlo debes ir a la siguiente URL: `http://localhost/api/v1/{api_name}/docs` y probar el chatbot en la interfaz de Swagger o consumirlo mediante una aplicación cliente.
+Para usarlo debes ir a la siguiente URL: `http://localhost/api/v1/{api_name}/docs` y probar el chatbot en la interfaz de Swagger o consumirlo mediante una aplicación cliente cómo [Nova Chatbot](https://github.com/gruponovaeafit/chatbot-nova)
