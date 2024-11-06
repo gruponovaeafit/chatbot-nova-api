@@ -1,4 +1,4 @@
-# V1.0 Beta
+# V2.0
 
 # imports
 import os
@@ -17,15 +17,19 @@ class NovaBot:
     It includes functionality to determine the context of a question and generate appropriate responses.
 
     Attributes:
-        client (OpenAI.Client): The OpenAI client used to interact with the GPT-3.5-turbo model.
-        contexts (dict): A dictionary containing various contexts that the bot can use to generate responses.
-        context_embeddings (list): A list of embeddings for each context in the contexts dictionary.
+        key (str): The OpenAI API key.
+        current_directory (str): The current directory path.
+        file_path (str): The path to the CSV file containing the contexts.
+        contexts (DataFrame): A DataFrame containing the contexts and responses.
+        client (OpenAI): An instance of the OpenAI client.
+        context_embeddings (list): A list to store the embeddings of the contexts.
     """
 
     def __init__(self) -> None:
         self.key = os.environ.get("API_KEY")
         self.current_directory = os.path.dirname(__file__)
-        self.file_path = os.path.join(self.current_directory, "data", "brain.csv")
+        self.file_path = os.path.join(
+            self.current_directory, "data", "brain.csv")
         self.contexts = pd.read_csv(self.file_path, sep=";")
         self.client = OpenAI(api_key=self.key)
         self.context_embeddings = []
@@ -72,7 +76,6 @@ class NovaBot:
 
         self.contexts["Embeddings"] = self.context_embeddings
 
-
     def get_index(self, question):
         """
         Function that retrieves the index of the most relevant context based on a given question.
@@ -91,7 +94,8 @@ class NovaBot:
         cos_distances = []
         for i in range(len(self.contexts)):
             cos_distances.append(
-                distance.cosine(self.contexts["Embeddings"][i], question_embeddings)
+                distance.cosine(
+                    self.contexts["Embeddings"][i], question_embeddings)
             )
         return cos_distances.index(abs(min(cos_distances)))
 
