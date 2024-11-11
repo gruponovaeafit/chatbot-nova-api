@@ -97,6 +97,33 @@ pip install -r requirements.txt
 fastapi run api/main.py
 ```
 
+## Ejecución con Docker
+
+> [!NOTE]
+> Asegúrate de tener [Docker](https://www.docker.com/) instalado en tu sistema.
+
+### Individual
+
+```yml
+# docker-compose.yml
+services:
+  backend:
+    image: gruponovaeafit/chatbot-nova-api:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - API_NAME=chatbot
+      - API_KEY=123456
+      - PRODUCTION_SERVER_URL=http://localhost/
+      - DEVELOPMENT_SERVER_URL=http://localhost/
+      - LOCALHOST_SERVER_URL=http://localhost/
+      - IS_PRODUCTION=0
+```
+
+> [!NOTE]
+> Si quieres ejecutar el chatbot junto con la aplicación cliente, sigue las instrucciones en el repositorio [chatbot-nova](https://github.com/gruponovaeafit/chatbot-nova?tab=readme-ov-file#ejecuci%C3%B3n-con-docker).
+
 ## 💬 Uso
 
 El chatbot está diseñado para responder a una amplia gama de entradas de los usuarios. Siéntete libre de hacer preguntas, realizar afirmaciones o entablar una conversación casual.
