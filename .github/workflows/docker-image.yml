@@ -25,7 +25,6 @@ jobs:
 
       - name: Build the Docker Image
         run: |
-          cd Cliente
           docker build . --tag gruponovaeafit/chatbot-nova-api:latest
 
       - name: Docker Push
